@@ -1,0 +1,38 @@
+.forma-podaci {
+    display: flex;
+    flex-direction: column;
+
+    margin: 2px auto;
+    padding: 30px 40px;
+
+    gap: 10px;
+
+    background-color: rgb(250, 250, 250);
+    border-radius: 20px;
+
+    @media screen and ($tablet) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 400px;
+    }
+
+    label {
+        padding-top: 4px;
+    }
+
+    input {
+        background-color: white;
+        &:placeholder-shown {
+            background-color: rgb(235, 235, 235);
+        }
+        border-radius: 5px;
+        height: 25px;
+    }
+
+    button {
+        grid-column: 1 / span 2;
+        height: 40px;
+    }
+
+    
+}

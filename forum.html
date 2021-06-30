@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Forum</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./css/main.css'>
     <script src='main.js'></script>
 </head>
 
@@ -21,15 +22,19 @@
 
     <main>
         <h1>Forum</h1>
-        <div>
-            <div>Naslov objave</div>
-            <div>Autor</div>
-            <div>Broj komenatara</div>
-            <button>Detaljnije...</button>
-        </div>
+        <section class="objave">
+            <div class="forum-card">
+                <div class="forum-card__zaglavlje">Naslov objave</div>
+                <div class="forum-card__content">
+                    <div class="forum-card__autor">Autor</div>
+                    <div class="forum-card__broj-komentara">Broj komenatara</div>
+                    <button class="forum-card__detaljnije">Detaljnije...</button>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer>
+    <footer>Stranica za forume, 2021.
 
     </footer>
 </body>

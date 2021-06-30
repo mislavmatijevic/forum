@@ -1,62 +1,72 @@
 $tablet: "min-width: 576px";
 $desktop: "min-width: 1024px";
 
-.sekcija-pravokutnici {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    @media screen and ($desktop) {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 15px;
-    }
+html {
+    height: 100%;
 }
 
-.glavni-pravokutnik {
+body {
+    margin: 0;
     display: flex;
+    min-height: 100vh;
     flex-direction: column;
-    height: auto;
-    
-    text-align: center;
-    margin: auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: large;
+}
 
-    width: 250px;
-    
-    padding: 10px;
-    color: black;
-    
-    background-color: lightblue;
-    border: 3px grey solid;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    &__wrapper {
-        @media screen and ($tablet) {
-            display: flex;
-            flex-direction: row;
-        }
-    }
-    &__opcija {
+main {
+    flex: 1 0 auto;
+    margin-top: 60px;
+    display: block;
+    height: fit-content;
+    contain: content;
+    padding-bottom: 64px;
+}
+
+header {
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
+        gap: 5px;
+
+        background-color: rgb(245, 245, 245);
+        border-bottom: 1px #aeaeae solid;
         height: auto;
-        text-align: center;
-        margin: 16px auto;
-        padding: 10px;
-        color: black;
-        background-color: lightblue;
-        border: 3px grey solid;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        transition: all 0.3s linear;
-        &:hover {
-            background-color: orange;
+
+        @media screen and ($desktop) {
+            flex-direction: row;
+            height: 40px;
         }
-        @media screen and ($tablet) {
-            width: 100px;
+
+        a {
+            transition: all 0.3s linear;
+
+            font-size: large;
+            text-decoration: none;
+
+            color: black;
+
+            &:hover {
+                color: orange;
+            }
         }
-    }
-    @media screen and ($tablet) {
-        max-width: 50%;
-    }
-    @media screen and ($desktop) {
-        max-width: 500px;
     }
 }
+
+footer {
+    background-color: rgb(245, 245, 245);
+    border-top: 1px #aeaeae solid;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+@import "./index";
+@import "./forma";
+@import "./forum-card";
