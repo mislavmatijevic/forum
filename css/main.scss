@@ -1,0 +1,62 @@
+$tablet: "min-width: 576px";
+$desktop: "min-width: 1024px";
+
+.sekcija-pravokutnici {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    @media screen and ($desktop) {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+}
+
+.glavni-pravokutnik {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    
+    text-align: center;
+    margin: auto;
+
+    width: 250px;
+    
+    padding: 10px;
+    color: black;
+    
+    background-color: lightblue;
+    border: 3px grey solid;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    &__wrapper {
+        @media screen and ($tablet) {
+            display: flex;
+            flex-direction: row;
+        }
+    }
+    &__opcija {
+        height: auto;
+        text-align: center;
+        margin: 16px auto;
+        padding: 10px;
+        color: black;
+        background-color: lightblue;
+        border: 3px grey solid;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        transition: all 0.3s linear;
+        &:hover {
+            background-color: orange;
+        }
+        @media screen and ($tablet) {
+            width: 100px;
+        }
+    }
+    @media screen and ($tablet) {
+        max-width: 50%;
+    }
+    @media screen and ($desktop) {
+        max-width: 500px;
+    }
+}
