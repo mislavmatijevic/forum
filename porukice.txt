@@ -1,0 +1,6 @@
+Rezultat jest 7
+Rezultat jest -2
+Rezultat jest 33
+Rezultat jest 10
+Rezultat jest 0
+Rezultat jest 1
