@@ -1,4 +1,0 @@
-goran = test1
-živko = test2
-goran2 = test2
-mislav = test1
