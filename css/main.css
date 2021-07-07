@@ -29,7 +29,34 @@ main {
   padding-bottom: 64px;
 }
 
-header nav {
+header .hamburger {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+  width: 50px;
+  -webkit-transform: translateX(10px) translateY(10px);
+          transform: translateX(10px) translateY(10px);
+  cursor: pointer;
+}
+
+header .hamburger__linija {
+  height: 4px;
+  background-color: black;
+}
+
+@media screen and (min-width: 1024px) {
+  header .hamburger {
+    display: none;
+  }
+}
+
+header .nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -43,13 +70,15 @@ header nav {
       -ms-flex-align: center;
           align-items: center;
   gap: 5px;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
   background-color: whitesmoke;
   border-bottom: 1px #aeaeae solid;
-  height: auto;
+  height: 0;
 }
 
 @media screen and (min-width: 1024px) {
-  header nav {
+  header .nav {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -58,7 +87,8 @@ header nav {
   }
 }
 
-header nav a {
+header .nav .nav__item {
+  display: none;
   -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
   font-size: large;
@@ -66,8 +96,14 @@ header nav a {
   color: black;
 }
 
-header nav a:hover {
+header .nav .nav__item:hover {
   color: orange;
+}
+
+@media screen and (min-width: 1024px) {
+  header .nav .nav__item {
+    display: block;
+  }
 }
 
 footer {
@@ -128,6 +164,18 @@ h1 {
   -ms-grid-column-span: 2;
   grid-column: 1 / span 2;
   height: 40px;
+}
+
+.forma-podaci .error {
+  color: red;
+  text-align: left;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / span 2;
+}
+
+.forma-podaci .error:empty {
+  display: none;
 }
 
 .objave {

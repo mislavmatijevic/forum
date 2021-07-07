@@ -25,7 +25,30 @@ main {
 
 header {
 
-    nav {
+    .hamburger {
+        position: absolute;
+
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        width: 50px;
+
+        transform: translateX(10px) translateY(10px);
+
+        cursor: pointer;
+
+        &__linija {
+            height: 4px;
+            background-color: black;
+        }
+
+        @media screen and ($desktop) {
+            display: none;
+        }
+    }
+
+    .nav {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -33,16 +56,20 @@ header {
 
         gap: 5px;
 
+        transition: all 0.3s linear;
+
         background-color: rgb(245, 245, 245);
         border-bottom: 1px #aeaeae solid;
-        height: auto;
+        height: 0;
 
         @media screen and ($desktop) {
             flex-direction: row;
             height: 40px;
         }
 
-        a {
+        .nav__item {
+            display: none;
+
             transition: all 0.3s linear;
 
             font-size: large;
@@ -52,6 +79,10 @@ header {
 
             &:hover {
                 color: orange;
+            }
+
+            @media screen and ($desktop) {
+                display: block;
             }
         }
     }

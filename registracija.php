@@ -75,12 +75,20 @@ if (isset($_POST["registracija"])) {
 <form class="forma-podaci" method="POST">
     <label for="korime">Korisničko ime:</label>
     <input name="korime" id="korime" type="text" placeholder=" " required value="<?php echo @htmlspecialchars($noviKorisnik["korime"]) ?>" />
+    <span id='korime-problem' class='error'></span>
+
     <label for="mail">Mail:</label>
     <input name="mail" id="mail" type="email" placeholder=" " required value="<?php echo @htmlspecialchars($noviKorisnik["mail"]) ?>" />
+    <span id='mail-problem' class='error'></span>
+
     <label for="lozinka">Lozinka:</label>
     <input name="lozinka" id="lozinka" type="password" placeholder=" " required value="<?php echo @htmlspecialchars($noviKorisnik["lozinka"]) ?>" />
-    <label for="lozinka-ponovljena">Ponovi lozinku:</label>
-    <input name="lozinka-ponovljena" id="lozinka-ponovljena" type="password" placeholder=" " required />
+    <span id='lozinka-problem' class='error'></span>
+
+    <label for="lozinkaPonovljena">Ponovi lozinku:</label>
+    <input name="lozinka-ponovljena" id="lozinkaPonovljena" type="password" placeholder=" " required />
+    <span id='lozinkaPonovljena-problem' class='error'></span>
+
     <button name="registracija" type="submit">Registriraj se</button>
     <?php
     if (!empty($problemi)) {
