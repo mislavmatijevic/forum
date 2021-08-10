@@ -25,7 +25,7 @@ if (isset($_POST["prijava"])) {
         $sha256Lozinka = hash("sha256", $lozinka . $sol);
 
         try {
-            $korisnik = $bazaObj->izvršiUpit("SELECT * FROM korisnik WHERE korime = ? AND lozinka = ?", "ss", [$korime, $sha256Lozinka]);
+            $korisnik = $bazaObj->izvršiUpit("SELECT id_korisnik, korime FROM korisnik WHERE korime = ? AND lozinka = ?", "ss", [$korime, $sha256Lozinka]);
         } catch (\Throwable $th) {
             echo $th->getMessage();
         }
@@ -36,6 +36,7 @@ if (isset($_POST["prijava"])) {
             $poruka = "Dobrodošli!";
             session_start();
             session_regenerate_id();
+            $_SESSION["id"] = $korisnik[0]["id_korisnik"];
             $_SESSION["korime"] = $korisnik[0]["korime"];
             header("Location: ./forum.php");
             exit();

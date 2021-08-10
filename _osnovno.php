@@ -2,7 +2,7 @@
 
 session_start();
 
-if (isset($_SESSION["korime"]) == false && @$zahtijevamPrijavu == true) {
+if (isset($_SESSION["id"]) == false && @$zahtijevamPrijavu == true) {
     header("Location: ./index.php");
     exit();
 }
@@ -16,7 +16,7 @@ echo "<!DOCTYPE html>
     <title>$naslov</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='./css/main.css'>
-    <script src='./js/main.js'></script>
+    <script defer src='./js/main.js'></script>
 </head>
 
 <body>

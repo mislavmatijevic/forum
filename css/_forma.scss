@@ -21,12 +21,11 @@
     }
 
     input {
-        background-color: white;
-        &:placeholder-shown {
-            background-color: rgb(235, 235, 235);
-        }
-        border-radius: 5px;
-        height: 25px;
+        @include inputStil;
+    }
+
+    textarea {
+        @include velikUnosTeksta;
     }
 
     button {

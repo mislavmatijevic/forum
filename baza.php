@@ -1,5 +1,8 @@
 <?php
 
+function očistiUnos(&$vrijednost, $indeks) {
+    $vrijednost = htmlspecialchars($vrijednost);
+}
 
 class Baza
 {
@@ -39,8 +42,13 @@ class Baza
             throw new Exception("Problem s bazom (".__LINE__.")");
         }
 
+
         if ($naredba == false) {
-            return $pripremljeniUpit->get_result()->fetch_all(MYSQLI_ASSOC);
+            $podaciIzBaze = $pripremljeniUpit->get_result()->fetch_all(MYSQLI_ASSOC);
+
+            array_walk_recursive($podaciIzBaze, "očistiUnos");
+
+            return $podaciIzBaze;
         } else {
             return $this->veza->insert_id;
         }

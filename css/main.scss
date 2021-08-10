@@ -98,6 +98,41 @@ h1 {
     text-align: center;
 }
 
+@mixin dugme {
+    width: 200px;
+    height: 2em;
+
+    background-color: transparent;
+    border-radius: 5px;
+    border: 1px solid grey;
+
+    transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+@mixin inputStil {
+    background-color: white;
+    &:placeholder-shown {
+        background-color: rgb(235, 235, 235);
+    }
+    border-radius: 5px;
+    height: 25px;
+}
+
+@mixin velikUnosTeksta {
+    @include inputStil;
+
+    min-width: 100%;
+    max-width: 100%;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    @media screen and ($tablet) {
+        min-width: 250px;
+        max-width: 300px;
+    }
+}
+
 @import "./index";
 @import "./forma";
 @import "./forum-card";
+@import "./objava";

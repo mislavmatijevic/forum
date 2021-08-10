@@ -1,0 +1,72 @@
+.komentari {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 24px;
+}
+
+.komentar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    width: 90%;
+
+    border: 1px solid grey;
+    border-radius: 5px;
+
+    padding: 16px 10px;
+
+
+    &__autor {
+        font-weight: 1000;
+    }
+
+    &:nth-of-type(2n) {
+        text-align: right;
+    }
+
+    @media screen and ($tablet) {
+        max-width: 450px;
+    }
+}
+
+.separator {
+    width: 90%;
+    background-color: grey;
+    height: 2px;
+
+    @media screen and ($tablet) {
+        max-width: 420px;
+    }
+
+}
+
+.unos-komentara {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    margin: 32px;
+
+    align-items: center;
+
+    &__tekst {
+        @include velikUnosTeksta;
+        height: 4em;
+
+        @media screen and ($tablet) {
+            min-width: 400px;
+            max-width: 450px;
+        }
+    }
+    &__objavi {
+        @include dugme;
+        height: 2em;
+        
+        &:hover {
+            background-color: lightblue;
+        }
+    }
+}

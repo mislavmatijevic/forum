@@ -5,6 +5,19 @@
     align-items: center;
 
     gap: 30px;
+
+    &__nova-objava {
+        @include dugme;
+
+        height: 3em;
+        font-size: medium;
+        background-color: lightgreen;
+
+        &:hover {
+            background-color: green;
+            color: white;
+        }
+    }
 }
 
 .forum-card {
@@ -61,8 +74,11 @@
     }
 
     &__detaljnije {
-        width: 80%;
-        height: 40px;
+        @include dugme;
+
+        &:hover {
+            background-color: lightblue;
+        }
     }
 }
 
