@@ -54,7 +54,7 @@ switch (document.location.pathname) {
                     const odgovorJSON = await fetch(`../api/servisi.php?korime=${korime.value}`);
                     const odgovor = await odgovorJSON.json();
 
-                    if (odgovor.podaci === 1) {
+                    if (odgovor.podaci == 1) {
                         poljeProblema["korime"] = odgovor.poruka;
                     } else {
                         poljeProblema["korime"] = false;
@@ -67,11 +67,11 @@ switch (document.location.pathname) {
             prikažiIspravnost("korime");
         }
         function mailProvjera() {
-            // if (RegExp(/^\w+@\w+\.\w{2,4}$/).test(mail.value) === false) {
-            //     poljeProblema["mail"] = "Unesite valjan mail!";
-            // } else {
+            if (RegExp(/^\w+@\w+\.\w{2,4}$/).test(mail.value) === false) {
+                poljeProblema["mail"] = "Unesite valjan mail!";
+            } else {
                 poljeProblema["mail"] = false;
-            // }
+            }
             prikažiIspravnost("mail");
         }
         function lozinkaProvjera() {
