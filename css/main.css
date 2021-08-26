@@ -198,6 +198,18 @@ h1 {
   display: none;
 }
 
+.forma-podaci .info {
+  font-style: italic;
+  color: darkblue;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / span 2;
+  background-color: lightblue;
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
 .objave {
   display: -webkit-box;
   display: -ms-flexbox;

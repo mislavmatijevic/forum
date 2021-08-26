@@ -6,7 +6,7 @@ $problemi = "";
 
 
 if (isset($_POST["registracija"])) {
-    
+
     $noviKorisnik = array();
 
     foreach ($_POST as $key => $value) {
@@ -97,6 +97,7 @@ if (isset($_POST["registracija"])) {
         echo "<p style='grid-column: 1 / span 2; color: green; text-align: center'>Dobrodošli!</p>";
     }
     ?>
+    <span class="info">Ni slučajno ne upisivati pravi mail ili često korištenu lozinku!</span>
 </form>
 <?php
 ispišiPodnožje();

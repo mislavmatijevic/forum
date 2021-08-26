@@ -6,10 +6,15 @@ function očistiUnos(&$vrijednost, $indeks) {
 
 class Baza
 {
-    private $veza;   
+    private $veza;
     public function __construct() {
-        $this->veza = new mysqli("localhost", "forum_admin", "forum", "forum_baza");
-        if ($this->veza->connect_errno) {
+        // Za sigurnost pristupa bazi.
+        $secret = @parse_ini_file("./.env");
+        if (!$secret) $secret = @parse_ini_file("../.env");
+        if (!$secret) $secret = ["admin" => "forum_admin", "secret" => "forum", "db" => "forum_baza"]; // Ako koristiš na svom računalu, da i dalje radi.
+
+        $this->veza = new mysqli("localhost", $secret["admin"], $secret["secret"], $secret["db"]);
+        if ($this->veza->connect_errno !== 0) {
             throw new Exception("Neuspjelo povezivanje");
         }
     }
