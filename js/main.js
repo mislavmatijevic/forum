@@ -75,7 +75,7 @@ switch (document.location.pathname) {
             prikažiIspravnost("mail");
         }
         function lozinkaProvjera() {
-            if (RegExp(/^(?=.*\d)(?=.*[a-zšđčćžŠĐČĆŽ])[\wšđčćžŠĐČĆŽ]{4,}$/).test(lozinka.value) === false) {
+            if (RegExp(/^(?=.*\d)(?=.*[A-Za-zšđčćžŠĐČĆŽ])[\wšđčćžŠĐČĆŽ]{4,}$/).test(lozinka.value) === false) {
                 poljeProblema["lozinka"] = "Unesite valjanu lozinku!";
             } else {
                 poljeProblema["lozinka"] = false;

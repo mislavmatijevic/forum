@@ -36,7 +36,7 @@ if (isset($_POST["registracija"])) {
                     break;
                 }
             case 'lozinka': {
-                    if (!preg_match("/^(?=.*\d)(?=.*[a-zšđčćžŠĐČĆŽ])[\wšđčćžŠĐČĆŽ]{4,}$/", $noviKorisnik[$key])) {
+                    if (!preg_match("/^(?=.*\d)(?=.*[A-Za-zšđčćžŠĐČĆŽ])[\wšđčćžŠĐČĆŽ]{4,}$/", $noviKorisnik[$key])) {
                         $problemi .= "Lozinka nije ispravna!<br>";
                     }
                     break;
