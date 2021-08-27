@@ -132,6 +132,12 @@ h1 {
     }
 }
 
+.recaptcha-container {
+    display: flex;
+    justify-content: center;
+    grid-column: 1/span 2;
+}
+
 @import "./index";
 @import "./forma";
 @import "./forum-card";

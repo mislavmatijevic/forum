@@ -1,12 +1,19 @@
 <?php
 $naslov = "Registracija";
 require_once "./_osnovno.php";
+require_once "./recaptcha.php";
 
 $problemi = "";
 
-
 if (isset($_POST["registracija"])) {
 
+    try {
+        if (isset($_POST['g-recaptcha-response'])) ReCaptchaProvjera($_POST['g-recaptcha-response']);
+    } catch (Exception $e) {
+        $problemi = $e->getMessage() . "<br>";
+    } finally {
+        unset($_POST['g-recaptcha-response']);
+    }
     $noviKorisnik = array();
 
     foreach ($_POST as $key => $value) {
@@ -65,8 +72,8 @@ if (isset($_POST["registracija"])) {
                 $bazaObj->izvršiUpit("INSERT INTO korisnik(korime,lozinka,sol,email) VALUES(?,?,?,?)", "ssss", [$noviKorisnik["korime"], $lozinka256, $sol, $noviKorisnik["mail"]], true);
                 $uspjeh = true;
             }
-        } catch (\Throwable $th) {
-            echo $th->getMessage();
+        } catch (Exception $ex) {
+            $problemi .= $ex->getMessage();
         }
     }
 }
@@ -89,15 +96,22 @@ if (isset($_POST["registracija"])) {
     <input name="lozinka-ponovljena" id="lozinkaPonovljena" type="password" placeholder=" " required />
     <span id='lozinkaPonovljena-problem' class='error'></span>
 
-    <button name="registracija" type="submit">Registriraj se</button>
     <?php
+    if (isset($recaptchaSite)) {
+        echo "
+        <div class='recaptcha-container'>
+            <div class='g-recaptcha' data-sitekey='$recaptchaSite'></div>
+        </div>
+        <span class='info'>Ni slučajno ne upisivati pravi mail ili često korištenu lozinku!</span>
+        ";
+    }
     if (!empty($problemi)) {
-        echo "<p style='grid-column: 1 / span 2; color: red; text-align: center'>$problemi</p>";
+        echo "<p class='error'>$problemi</p>";
     } else if (isset($uspjeh)) {
-        echo "<p style='grid-column: 1 / span 2; color: green; text-align: center'>Dobrodošli!</p>";
+        echo "<p class='error' style='color: green'>Dobrodošli!</p>";
     }
     ?>
-    <span class="info">Ni slučajno ne upisivati pravi mail ili često korištenu lozinku!</span>
+    <button name="registracija" type="submit">Registriraj se</button>
 </form>
 <?php
 ispišiPodnožje();

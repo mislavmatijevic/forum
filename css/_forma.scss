@@ -33,22 +33,23 @@
         height: 40px;
     }
 
-    .error {
-
-        color: red;
-        text-align: left;
-
+    @mixin message {
         grid-column: 1 / span 2;
-
+        text-align: center;
         &:empty {
             display: none;
         }
     }
 
+    .error {
+        @include message;
+        color: red;
+    }
+
     .info {
+        @include message;
         font-style: italic;
         color: darkblue;
-        grid-column: 1 / span 2;
         background-color: lightblue;
         padding: 10px;
         border-top-left-radius: 10px;
