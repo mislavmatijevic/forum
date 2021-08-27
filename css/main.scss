@@ -138,6 +138,29 @@ h1 {
     grid-column: 1/span 2;
 }
 
+@mixin message {
+    grid-column: 1 / span 2;
+    text-align: center;
+    &:empty {
+        display: none;
+    }
+}
+
+.error {
+    @include message;
+    color: red;
+}
+
+.info {
+    @include message;
+    font-style: italic;
+    color: darkblue;
+    background-color: lightblue;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
 @import "./index";
 @import "./forma";
 @import "./forum-card";

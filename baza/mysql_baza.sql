@@ -27,12 +27,13 @@ CREATE TABLE `komentar` (
   `id_komentator` int NOT NULL,
   `id_objava` int NOT NULL,
   `tekst` text NOT NULL,
+  `datum_komentara` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_komentar`),
   KEY `fk_korisnik_has_objava_objava1_idx` (`id_objava`),
   KEY `fk_korisnik_has_objava_korisnik1_idx` (`id_komentator`),
   CONSTRAINT `fk_korisnik_has_objava_korisnik1` FOREIGN KEY (`id_komentator`) REFERENCES `korisnik` (`id_korisnik`),
   CONSTRAINT `fk_korisnik_has_objava_objava1` FOREIGN KEY (`id_objava`) REFERENCES `objava` (`id_objava`)
-) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +42,7 @@ CREATE TABLE `komentar` (
 
 LOCK TABLES `komentar` WRITE;
 /*!40000 ALTER TABLE `komentar` DISABLE KEYS */;
-INSERT INTO `komentar` VALUES (1,3,1,'Hvala! :)'),(2,2,2,'Što može biti nejasno?? Staviš post, ljudi komentiraju, voila.'),(3,4,2,'Mi smo simulacija :::(((('),(5,3,2,'O čemu ovaj?'),(6,5,1,'Wow kul'),(19,1,2,'Pozdrav svima!'),(24,13,9,'kul bro'),(26,1,10,'Bok zuzo!!!'),(27,3,10,'Bok!'),(28,4,3,'Kako ti mogu poomoći?'),(30,4,10,'Dobrodošao!'),(59,1,20,'<h1>YO</h1>'),(60,3,20,'Ti si čudan.');
+INSERT INTO `komentar` VALUES (1,3,1,'Hvala! :)','2021-08-27 00:43:16'),(2,2,2,'Što može biti nejasno?? Staviš post, ljudi komentiraju, voila.','2021-08-27 00:43:16'),(3,4,2,'Mi smo simulacija :::((((','2021-08-27 00:43:16'),(5,3,2,'O čemu ovaj?','2021-08-27 00:43:16'),(6,5,1,'Wow kul','2021-08-27 00:43:16'),(19,1,2,'Pozdrav svima!','2021-08-27 00:43:16'),(24,13,9,'kul bro','2021-08-27 00:43:16'),(26,1,10,'Bok zuzo!!!','2021-08-27 00:43:16'),(27,3,10,'Bok!','2021-08-27 00:43:16'),(28,4,3,'Kako ti mogu poomoći?','2021-08-27 00:43:16'),(30,4,10,'Dobrodošao!','2021-08-27 00:43:16'),(59,1,20,'<h1>YO</h1>','2021-08-27 00:43:16'),(60,3,20,'Ti si čudan.','2021-08-27 00:43:16');
 /*!40000 ALTER TABLE `komentar` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -60,7 +61,7 @@ CREATE TABLE `korisnik` (
   `email` varchar(200) NOT NULL,
   `datum_registracije` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_korisnik`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -89,7 +90,7 @@ CREATE TABLE `objava` (
   PRIMARY KEY (`id_objava`),
   KEY `fk_objava_korisnik_idx` (`id_objavitelj`),
   CONSTRAINT `fk_objava_korisnik` FOREIGN KEY (`id_objavitelj`) REFERENCES `korisnik` (`id_korisnik`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -111,4 +112,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-10 18:45:17
+-- Dump completed on 2021-08-27 16:59:42

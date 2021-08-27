@@ -30,6 +30,7 @@ require "./_osnovno.php";
 
 </section>
 <div class="unos-komentara">
+    <span class='error'></span>
     <textarea class="unos-komentara__tekst"></textarea>
     <button class="unos-komentara__objavi">Objavi</button>
 </div>

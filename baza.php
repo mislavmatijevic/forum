@@ -13,7 +13,7 @@ class Baza
         if (!$secret) $secret = @parse_ini_file("../.env");
         if (!$secret) $secret = ["admin" => "forum_admin", "secret" => "forum", "db" => "forum_baza"]; // Ako koristiš na svom računalu, da i dalje radi.
 
-        $this->veza = new mysqli("localhost", $secret["admin"], $secret["secret"], $secret["db"]);
+        $this->veza = @new mysqli("localhost", $secret["admin"], $secret["secret"], $secret["db"]);
         if ($this->veza->connect_errno !== 0) {
             throw new Exception("Neuspjelo povezivanje");
         }

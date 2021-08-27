@@ -175,10 +175,13 @@ switch (document.location.pathname) {
     }
     case '/objava.php': {
 
+        const errorElement = document.querySelector('.error');
+
         const idObjave = location.search.split('id=')[1];
         const sekcija = document.querySelector('.komentari');
         
         const unesiKomentar = (korime, tekst, separator = false) => {
+            tekst = tekst.replaceAll('\n','<br>');
             sekcija.innerHTML +=
                     `
                     <div class="komentar">
@@ -226,6 +229,8 @@ switch (document.location.pathname) {
                 if (odgovor.uspjeh) {
                     unesiKomentar(odgovor.podaci.korime, odgovor.podaci.tekst);
                     tekstKomentara.value = '';
+                } else {
+                    errorElement.innerHTML = odgovor.poruka;
                 }
                 dugmeObjavi.hidden = "";
 
