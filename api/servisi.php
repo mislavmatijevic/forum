@@ -1,6 +1,5 @@
 <?php
 
-ob_clean();
 header_remove();
 header("Content-type: application/json; charset=UTF-8");
 

@@ -19,6 +19,8 @@
 -- Table structure for table `komentar`
 --
 
+USE forum_baza;
+
 DROP TABLE IF EXISTS `komentar`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;

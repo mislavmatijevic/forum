@@ -1,6 +1,6 @@
 <?php
 
-function očistiUnos(&$vrijednost, $indeks) {
+function očistiUnos(&$vrijednost) {
     $vrijednost = htmlspecialchars($vrijednost);
 }
 
@@ -9,11 +9,10 @@ class Baza
     private $veza;
     public function __construct() {
         // Za sigurnost pristupa bazi.
-        $secret = @parse_ini_file("./.env");
-        if (!$secret) $secret = @parse_ini_file("../.env");
-        if (!$secret) $secret = ["admin" => "forum_admin", "secret" => "forum", "db" => "forum_baza"]; // Ako koristiš na svom računalu, da i dalje radi.
+        $secret = @parse_ini_file(".env");
+        if (!$secret) $secret = ["DB_HOST" => "localhost", "DB_USER" => "forum_admin", "DB_SECRET" => "forum", "DB_NAME" => "forum_baza"]; // Ako koristiš na svom računalu, da i dalje radi.
 
-        $this->veza = @new mysqli("localhost", $secret["admin"], $secret["secret"], $secret["db"]);
+        $this->veza = @new mysqli($secret["DB_HOST"], $secret["DB_USER"], $secret["DB_SECRET"], $secret["DB_NAME"]);
         if ($this->veza->connect_errno !== 0) {
             throw new Exception("Neuspjelo povezivanje");
         }

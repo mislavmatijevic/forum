@@ -97,10 +97,10 @@ if (isset($_POST["registracija"])) {
     <span id='lozinkaPonovljena-problem' class='error'></span>
 
     <?php
-    if (isset($recaptchaSite)) {
+    if (isset($captchaSiteKey)) {
         echo "
         <div class='recaptcha-container'>
-            <div class='g-recaptcha' data-sitekey='$recaptchaSite'></div>
+            <div class='g-recaptcha' data-sitekey='$captchaSiteKey'></div>
         </div>
         <span class='info'>Ni slučajno ne upisivati pravi mail ili često korištenu lozinku!</span>
         ";

@@ -65,10 +65,10 @@ require_once "./_osnovno.php";
     <label for="lozinka">Lozinka:</label>
     <input name="lozinka" id="lozinka" type="password" placeholder=" " required />
     <?php
-    if (isset($recaptchaSite)) {
+    if (isset($captchaSiteKey)) {
         echo "
         <div class='recaptcha-container'>
-            <div class='g-recaptcha' data-sitekey='$recaptchaSite'></div>
+            <div class='g-recaptcha' data-sitekey='$captchaSiteKey'></div>
         </div>
         ";
     }

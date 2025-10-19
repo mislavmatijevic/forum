@@ -1,15 +1,15 @@
 <?php
 
-$recaptchaSite = @parse_ini_file('./.env')["recaptchaSite"];
+$captchaSiteKey = @parse_ini_file('./.env')["CAPTCHA_SITE_KEY"];
 function ReCaptchaProvjera($captcha)
 {
     if (empty($captcha)) {
         throw new Exception("Označite da niste robot!");
     }
 
-    $secret = @parse_ini_file('./.env')["recaptchaSecret"];
+    $secret = @parse_ini_file('.env')["CAPTCHA_SECRET_KEY"];
 
-    $url = 'https://www.google.com/recaptcha/api/siteverify';
+    $url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
     $podaci = @array('secret' => $secret, 'response' => $captcha, 'remoteip' => $_SERVER['REMOTE_ADDR']);
 
     $opcije = array(
