@@ -17,7 +17,7 @@ echo "<!DOCTYPE html>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='./css/main.css'>
     <script defer src='./js/main.js'></script>
-    <script src='https://challenges.cloudflare.com/turnstile/v0/api.js?compat=recaptcha' async defer></script>
+    <script src='https://challenges.cloudflare.com/turnstile/v0/api.js' async defer></script>
 </head>
 
 <body>

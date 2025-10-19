@@ -1,7 +1,7 @@
 <?php
 
 $captchaSiteKey = @parse_ini_file('./.env')["CAPTCHA_SITE_KEY"];
-function ReCaptchaProvjera($captcha)
+function CaptchaProvjera($captcha)
 {
     if (empty($captcha)) {
         throw new Exception("Označite da niste robot!");
@@ -24,11 +24,11 @@ function ReCaptchaProvjera($captcha)
 
     $odg = file_get_contents($url, false, $context);
     if ($odg === false) {
-        throw new Exception("Problem u obradi ReCaptcha testa!");
+        throw new Exception("Problem u obradi Captcha testa!");
     }
 
     $odgJSON = json_decode($odg, true);
     if ($odgJSON["success"] == false) {
-        throw new Exception("Ponovno riješite ReCaptcha test!");
+        throw new Exception("Ponovno riješite Captcha test!");
     };
 }

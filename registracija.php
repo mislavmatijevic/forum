@@ -1,18 +1,18 @@
 <?php
 $naslov = "Registracija";
 require_once "./_osnovno.php";
-require_once "./recaptcha.php";
+require_once "./captcha.php";
 
 $problemi = "";
 
 if (isset($_POST["registracija"])) {
 
     try {
-        if (isset($_POST['g-recaptcha-response'])) ReCaptchaProvjera($_POST['g-recaptcha-response']);
+        if (isset($_POST['cf-turnstile-response'])) CaptchaProvjera($_POST['cf-turnstile-response']);
     } catch (Exception $e) {
         $problemi = $e->getMessage() . "<br>";
     } finally {
-        unset($_POST['g-recaptcha-response']);
+        unset($_POST['cf-turnstile-response']);
     }
     $noviKorisnik = array();
 
@@ -99,10 +99,8 @@ if (isset($_POST["registracija"])) {
     <?php
     if (isset($captchaSiteKey)) {
         echo "
-        <div class='recaptcha-container'>
-            <div class='g-recaptcha' data-sitekey='$captchaSiteKey'></div>
-        </div>
-        <span class='info'>Ni slučajno ne upisivati pravi mail ili često korištenu lozinku!</span>
+            <div class='cf-turnstile' data-sitekey='$captchaSiteKey' data-theme='light'></div>
+            <span class='info'>Ni slučajno ne upisivati često korištenu lozinku!</span>
         ";
     }
     if (!empty($problemi)) {

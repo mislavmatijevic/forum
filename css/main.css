@@ -116,7 +116,7 @@ h1 {
   text-align: center;
 }
 
-.recaptcha-container {
+.cf-turnstile {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

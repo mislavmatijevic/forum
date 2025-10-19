@@ -1,12 +1,12 @@
 <?php
 
-require_once "./recaptcha.php";
+require_once "./captcha.php";
 try {
-    if (isset($_POST['g-recaptcha-response'])) ReCaptchaProvjera($_POST['g-recaptcha-response']);
+    if (isset($_POST['cf-turnstile-response'])) CaptchaProvjera($_POST['cf-turnstile-response']);
 } catch (Exception $e) {
     $problem = $e->getMessage() . "<br>";
 } finally {
-    unset($_POST['g-recaptcha-response']);
+    unset($_POST['cf-turnstile-response']);
 }
 
 if (isset($_POST["prijava"]) && empty($problem)) {
@@ -66,11 +66,7 @@ require_once "./_osnovno.php";
     <input name="lozinka" id="lozinka" type="password" placeholder=" " required />
     <?php
     if (isset($captchaSiteKey)) {
-        echo "
-        <div class='recaptcha-container'>
-            <div class='g-recaptcha' data-sitekey='$captchaSiteKey'></div>
-        </div>
-        ";
+        echo "<div class='cf-turnstile' data-sitekey='$captchaSiteKey' data-theme='light'></div>";
     }
     if (isset($problem)) {
         echo "<p class='error'>$problem</p>";
